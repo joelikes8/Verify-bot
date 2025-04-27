@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: verify-bot
+    env: node
+    repo: https://github.com/joelikes8/Verify-bot.git
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: NODE_ENV=production node dist/server/index.js
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: ROBLOX_COOKIE
+        sync: false
+      - key: ADMIN_USER_ID
+        sync: false
+      - key: PORT
+        value: 10000
