@@ -2,9 +2,11 @@ services:
   - type: web
     name: verify-bot
     env: node
+    runtime: node
+    nodeVersion: 18.x
     repo: https://github.com/joelikes8/Verify-bot.git
     branch: main
-    buildCommand: chmod +x build-render.sh && ./build-render.sh
+    buildCommand: chmod +x simple-build.sh && ./simple-build.sh
     startCommand: NODE_ENV=production RENDER=true node dist/server/index.js
     envVars:
       - key: DATABASE_URL
